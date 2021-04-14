@@ -1,4 +1,3 @@
-// Wine Varietals DB
 const WDB = {
     wines: [
         {
@@ -164,3 +163,5 @@ const WDB = {
         }
     ]
 }
+
+export default WDB;

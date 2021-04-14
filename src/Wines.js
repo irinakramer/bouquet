@@ -1,10 +1,14 @@
+import WDB from './WDB';
 import Wine from './Wine';
 
-const Wines = () => {
+const Wines = ({wines}) => {
+
+    const allWines = wines.map( w => <li>{w.name}</li>)
     return (
         <div>
-            Wines:
-            <Wine />
+            <h1>All Wines</h1>
+            {allWines}
+            <Wine wines={WDB.wines} />
         </div>
     )
 }
