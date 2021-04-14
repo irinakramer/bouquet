@@ -1,5 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar';
+import Search from './Search';
+import Wines from './Wines';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
     </header>
 
     <main>
+      <Search />
+      <Wines />
 
     </main>
 
