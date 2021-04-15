@@ -6,9 +6,13 @@ const Wines = () => {
 
     const [wines, setWines] = useState([]);
 
-    useEffect( async () => {
-        const data = await WinesAPI.index();
-        console.log(data);
+    useEffect( () => {
+        const fetchData = async () => {
+            const data = await WinesAPI.index();
+            console.log(data);
+        }
+        fetchData();
+
     }, []);
 
     //const allWines = wines.map( w => <WineRow key={w.id} name={w.name} variety={w.variety}/>)
