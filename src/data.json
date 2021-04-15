@@ -1,0 +1,89 @@
+[
+    {
+        "name": "Chardonnay",
+        "variety": "white",
+        "aromas": null,
+        "barrelAged": null,
+        "fruits": ["lemon", "lime", "apple", "fresh almond", "pear"],
+        "flowers": [ "lime blossom", "acacia", "honeysuckle", "verbena",  "honey"],
+        "herbsAndSpices": null,
+        "bonus": ["butter",  "hazelnut",  "toasted almond", "vanilla", "toast"],
+        "sweetVersion": null,
+        "withBottleAge": null,
+        "overview": "It is versatile and changes its character according to region, terroir and winemaker. It can be very fruity or very floral, and it can also reveal sharp, mineral flavors in the north of Burgundy, as Chablis does, or it can be sensual or buttery like thosr from California. ",
+        "regions": [
+            "France: Burgundy, Champaigne, Jura, Languedoc, Provence",
+            "United States: mostly California",
+            "Canada",
+            "Chile",
+            "Argentina",
+            "South Africa",
+            "China",
+            "Australia"
+        ]
+    },
+    {
+        "name": "Sauvignon Blank",
+        "variety": "white",
+        "aromas": null,
+        "barrelAged": null,
+        "fruits": ["lemon", "lime", "grapefruit", "bergamot", "pineapple", "passion fruit"],
+        "flowers": ["jasmine", "elderberry"],
+        "herbsAndSpices": null,
+        "bonus": ["smoke", "chalk"],
+        "sweetVersion": null,
+        "withBottleAge": null,
+        "overview": "It's one of the most expressive varietals. It has refreshing aromas and notes of bright citrus, and can be reminiscent of tender grass that evokes springtime and the joy of living. ",
+        "regions": [
+            "France: central Loire Valley, Bordeaux, South West",
+            "Spain",
+            "New Zealand",
+            "United States (California)",
+            "Chile",
+            "South Africa"
+        ]
+    },
+    {
+        "name": "Pinot Noir",
+        "variety": "red",
+        "aromas": ["cherry", "raspberry", "strawberry", "black currant",  "iris", "violet"],
+        "barrelAged": ["wood",  "vanilla",  "cinnamon", "tobacco"],
+        "fruits": null,
+        "flowers": null,
+        "herbsAndSpices": null,
+        "bonus": null,
+        "sweetVersion": null,
+        "withBottleAge": ["fur", "leather",  "undergrowth", "moss",  "truffle", "musk"],
+        "overview": "The king of Burgundies shows as much finesse as power. The wine is a brilliant ruby color, with bewitching aromas of red fruit, and in the mouth its texture is fine and silky with low tannins.",
+        "regions": [
+            "Europe",
+            "North America",
+            "South America",
+            "South Africa",
+            "France: Burgundy, Chamaigne",
+            "United States: California, Oregon",
+            "New Zealand",
+            "Australia"
+        ]
+    },
+    {
+        "name": "Cabernet Sauvignon",
+        "variety": "red",
+        "aromas": ["black currant", "blackberry", "fern", "bell pepper", "jasmine",  "sandalwood",  "pine resin"],
+        "barrelAged": ["oak", "vanilla", "clove",  "licorice"],
+        "fruits": null,
+        "flowers": null,
+        "herbsAndSpices": null,
+        "bonus": null,
+        "sweetVersion": null,
+        "withBottleAge": ["leather", "tobacco", "wild game", "cedar", "pencil shavings", "truffle"],
+        "overview": "This is another monarch variety, this time from Bordeaux. This grape is the marathon runner in the wine world. Wine made from these grapes is made to last. Its abundant tannins are an invitation to wait decades for the wine to develop a powerful bouquet and extremely complex aromas of cassis, tobacco, wild game, and cedar.",
+        "regions": [
+            "All over, from France to China",
+            "France: Bordeaux, South of France",
+            "Italy",
+            "Chile",
+            "United States: California"
+        ]
+    }
+]
