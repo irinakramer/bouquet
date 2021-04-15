@@ -1,7 +1,7 @@
-const WineRow = ({id, name, variety}) => {
+const WineRow = ({objectId, name, variety}) => {
     return (
         <div>
-            Wine Row: {name} - {variety}
+            {name} - {variety}
             
         </div>
     )

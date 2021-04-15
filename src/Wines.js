@@ -4,13 +4,16 @@ import WinesAPI from './services/WinesAPI';
 
 const Wines = () => {
 
+    const [fetching, setFetching] = useState(false);
     const [wines, setWines] = useState([]);
 
     useEffect( () => {
         const fetchData = async () => {
+            setFetching(true);
             const data = await WinesAPI.index();
             console.log(data);
             data ? setWines(data) : console.log("ERROR");
+            setFetching(false);
         }
         fetchData();
 
@@ -18,26 +21,31 @@ const Wines = () => {
 
     //const allWines = wines.map( w => <WineRow key={w.id} name={w.name} variety={w.variety}/>)
 
-    const whiteWines = wines.filter( (w => w.variety === "white"))
-    const allWhiteWines = whiteWines.map(ww => 
-        <WineRow key={ww.objectId} name={ww.name} variety={ww.variety}/>
-    )
+    const allWhiteWines = wines.filter(w => w.variety === "white")
+                            .map(w => <WineRow key={w.objectId} {...w}/>)
 
-    const redWines = wines.filter( (w => w.variety === "red"))
-    const allRedWines = redWines.map(rw => 
-        <WineRow key={rw.objectId} name={rw.name} variety={rw.variety}/>
+    const allRedWines = wines.filter( (w => w.variety === "red"))
+                        .map(w => <WineRow key={w.objectId} {...w}/>
     )
 
     return (
-        <div>
-            <h1>All Wines</h1>
-            <h2>Whites:</h2>
-            {allWhiteWines}
+        <>
+        {
+            !fetching ? null : 
+            <p>Loading ... </p>
+        }
+        {
+            fetching ? null :
+            <div>
+                <h1>All Wines</h1>
+                <h2>Whites:</h2>
+                {allWhiteWines}
 
-            <h2>Reds:</h2>
-            {allRedWines}
-            
-        </div>
+                <h2>Reds:</h2>
+                {allRedWines}            
+            </div>
+        }           
+        </>
     )
 }
 
