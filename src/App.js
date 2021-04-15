@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import Search from './Search';
 import Wines from './Wines';
 import Wine from './Wine';
-import WDB from './WDB';
+import WDB from './services/WDB';
 
 const App = () => {
   console.log(WDB.wines)
