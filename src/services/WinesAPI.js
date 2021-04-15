@@ -7,7 +7,8 @@ const authHeaders = {
 
 const index = () => {
     return fetch(baseUrl, {headers: authHeaders})
-        .then(response => response.json());
+        .then(response => response.json())
+        .then(data => data.results)
 }
 
 const WinesAPI = {
