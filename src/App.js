@@ -15,17 +15,19 @@ const App = () => {
       </header>
 
       <main>
-        <Search />
         
-        {/* TODO: link to All Wines */}
+        {/* TODO: link to All Wines and Search  */}
+        {/* 
+        <Search />
         <Link to="/wines">All Wines</Link>
-
-        <Wines wines={WDB.wines} />
+        <Wines wines={WDB.wines} /> 
+        */}
 
         {/* TODO: Set up proper routing */}
         <Switch>
+          <Route exact path="/" component={Wines} />
           <Route path="/search" component={Search} />
-          <Route path="/wines" component={Wines} />
+          <Route exact path="/wines" component={Wines} />
           <Route path="/wines/:name" render={routerProps =>
             <Wine {...routerProps} />
           } />

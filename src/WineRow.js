@@ -1,7 +1,9 @@
+import {Link} from 'react-router-dom';
+
 const WineRow = ({objectId, name, variety}) => {
     return (
         <div>
-            {name} - {variety}
+            <Link to={`/wines/${name}`}>{name} - {variety}</Link>
             
         </div>
     )
