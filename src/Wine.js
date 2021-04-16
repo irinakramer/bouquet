@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import WinesAPI from './services/WinesAPI';
+import Flavor from './Flavor';
 
 const Wine = ({match}) => {
 
@@ -29,10 +30,23 @@ const Wine = ({match}) => {
             fruits, 
             regions} = wine;
 
-
+console.log(fruits);
+    
     return (
         <div>
-            Wine: {name}
+            <h1>{name}</h1>     
+            <ul>Fruits: {fruits && fruits.map( (item, i) => <Flavor key={i} value={item} />)}</ul>
+            <ul>Flowers: {flowers && flowers.map( (item, i) => <Flavor key={i} value={item} />)}</ul>
+            <ul>Bonus: {bonus && bonus.map( (item, i) => <Flavor key={i} value={item} />)}</ul>
+            <ul>{aromas && aromas.map( (item, i) => <Flavor key={i} value={item} />)}</ul>
+
+            <h3>Overview:</h3>
+            <p>{overview}</p>
+
+            <h3>Where does it come from?</h3>
+            <ul>{regions && regions.map( (item, i) => <li key={i}>{item}</li>)}</ul>
+           
+           
         </div>
     )
 }
