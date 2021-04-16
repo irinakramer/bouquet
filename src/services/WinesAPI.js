@@ -11,8 +11,14 @@ const index = () => {
         .then(data => data.results)
 }
 
+const show = (objectId) => {
+    return fetch(`${baseUrl}/${objectId}`, {headers: authHeaders})
+        .then(response => response.json())
+}
+
 const WinesAPI = {
-    index
+    index,
+    show
 };
 
 export default WinesAPI;

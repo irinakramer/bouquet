@@ -1,15 +1,38 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import WinesAPI from './services/WinesAPI';
-import wineData from './services/data.json';
 
 const Wine = ({match}) => {
-    console.log({match});
-    const wine = wineData.find(item => item.name === match.params.name)
+
+    const [wine, setWine] = useState({});
+
+    // run on component mounting
+    // run only if it changes
+    useEffect( () => {
+        const fetchData = async () => {
+            const data = await WinesAPI.show(match.params.objectId);
+            console.log(data)
+            data ? setWine(data) : console.log("Error")
+        }
+        fetchData();
+    }, [match.params.objectId])
+
+    const {objectId, 
+            aromas, 
+            variety, 
+            barrelAged, 
+            name, 
+            withBottleAge, 
+            flowers, 
+            overview, 
+            bonus, 
+            fruits, 
+            regions} = wine;
+
 
     return (
         <div>
-            Wine: {wine.name}
+            Wine: {name}
         </div>
     )
 }

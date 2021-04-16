@@ -23,7 +23,7 @@
         ]
     },
     {
-        "name": "Sauvignon Blank",
+        "name": "SauvignonBlank",
         "variety": "white",
         "aromas": null,
         "barrelAged": null,
@@ -44,7 +44,7 @@
         ]
     },
     {
-        "name": "Pinot Noir",
+        "name": "PinotNoir",
         "variety": "red",
         "aromas": ["cherry", "raspberry", "strawberry", "black currant",  "iris", "violet"],
         "barrelAged": ["wood",  "vanilla",  "cinnamon", "tobacco"],
@@ -67,7 +67,7 @@
         ]
     },
     {
-        "name": "Cabernet Sauvignon",
+        "name": "CabernetSauvignon",
         "variety": "red",
         "aromas": ["black currant", "blackberry", "fern", "bell pepper", "jasmine",  "sandalwood",  "pine resin"],
         "barrelAged": ["oak", "vanilla", "clove",  "licorice"],

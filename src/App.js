@@ -4,10 +4,9 @@ import NavBar from './components/NavBar';
 import Search from './Search';
 import Wines from './Wines';
 import Wine from './Wine';
-import WDB from './services/WDB';
 
 const App = () => {
-  console.log(WDB.wines)
+
   return (
     <>
       <header>
@@ -23,12 +22,11 @@ const App = () => {
         <Wines wines={WDB.wines} /> 
         */}
 
-        {/* TODO: Set up proper routing */}
         <Switch>
           <Route exact path="/" component={Wines} />
           <Route path="/search" component={Search} />
           <Route exact path="/wines" component={Wines} />
-          <Route path="/wines/:name" render={routerProps =>
+          <Route path="/wines/:objectId" render={routerProps =>
             <Wine {...routerProps} />
           } />
         </Switch>
