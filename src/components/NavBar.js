@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import Typography from "@material-ui/core/Typography"
@@ -8,7 +9,7 @@ const NavBar = () => {
             <AppBar position="static">
                 <ToolBar>
                     <Typography variant="body2" color="inherit">
-                        Bouquet Wine Tasting
+                        <Link to="/">Bouquet Wine Tasting</Link>
                     </Typography>
                 </ToolBar>
             </AppBar>
