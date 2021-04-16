@@ -1,6 +1,7 @@
 const Flavor = (props) => {
+    
     return (
-        <li>{props.value}</li>
+        <li><img src={process.env.PUBLIC_URL + `/images/${props.value}.png`} />{props.value}</li>
     )
 }
 
