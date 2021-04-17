@@ -18,6 +18,15 @@ const Wine = ({match}) => {
         fetchData();
     }, [match.params.objectId])
 
+    const handleDelete = async e => {
+        e.preventDefault();
+
+        const data = await WinesAPI.destroy(wine.objectId);
+
+        if(data) 
+            console.log("Wine deleted")
+    }
+
     const {objectId, 
             aromas, 
             variety, 
@@ -29,8 +38,6 @@ const Wine = ({match}) => {
             bonus, 
             fruits, 
             regions} = wine;
-
-console.log(fruits);
     
     return (
         <div>
@@ -46,7 +53,7 @@ console.log(fruits);
             <h3>Where does it come from?</h3>
             <ul>{regions && regions.map( (item, i) => <li key={i}>{item}</li>)}</ul>
            
-           
+           <Link to={""} onClick={handleDelete}>Delete</Link>
         </div>
     )
 }
