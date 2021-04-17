@@ -59,6 +59,8 @@ const Wine = ({match}) => {
             <h3>Where does it come from?</h3>
             <ul>{regions && regions.map( (item, i) => <li key={i}>{item}</li>)}</ul>
            
+           <Link to={`/wines/${objectId}/edit`}>Edit</Link>
+           <br></br><br></br><br></br>
            <Link to={""} onClick={handleDelete}>Delete</Link>
         </div>
     )

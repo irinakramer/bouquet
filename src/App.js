@@ -5,6 +5,7 @@ import Search from './components/Search';
 import Wines from './pages/Wines';
 import Wine from './pages/Wine';
 import WineNew from './pages/WineNew';
+import WineEdit from './pages/WineEdit';
 
 const App = () => {
 
@@ -26,10 +27,13 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Wines} />
           <Route path="/wines/new" component={WineNew} />
+          <Route path="/wines/:objectId/edit" render={ routeProps => 
+            <WineEdit {...routeProps} />
+          } />
           <Route path="/search" component={Search} />
           <Route exact path="/wines" component={Wines} />
-          <Route path="/wines/:objectId" render={routerProps =>
-            <Wine {...routerProps} />
+          <Route path="/wines/:objectId" render={routeProps =>
+            <Wine {...routeProps} />
           } />
         </Switch>
       </main>
