@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Search from './components/Search';
 import Wines from './pages/Wines';
 import Wine from './pages/Wine';
+import WineNew from './pages/WineNew';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
 
         <Switch>
           <Route exact path="/" component={Wines} />
+          <Route path="/wines/new" component={WineNew} />
           <Route path="/search" component={Search} />
           <Route exact path="/wines" component={Wines} />
           <Route path="/wines/:objectId" render={routerProps =>

@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import WineRow from '../components/WineRow';
 import WinesAPI from '../services/WinesAPI';
 
@@ -30,6 +31,7 @@ const Wines = () => {
 
     return (
         <>
+        <Link to={"/wines/new"}>New Wine</Link>
         {
             !fetching ? null : 
             <p>Loading ... </p>
