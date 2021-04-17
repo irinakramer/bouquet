@@ -1,18 +1,35 @@
 import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import WinesAPI from '../services/WinesAPI';
 
 const WineForm = ({wine, setWine, buttonText, cancelPath}) => {
+
+    const [redirect, setRedirect] = useState({});
 
     const handleChange = e => {
         console.log("form changed");
         setWine(prevWine => ({
             ...prevWine,
-            [e.target.value]: e.target.value
+            [e.target.name]: e.target.valueAsNumber || e.target.value
         }))
     }
 
+    const handleSubmit = async e => {
+        e.preventDefault();
+
+        const data = await WinesAPI.create(wine);
+
+        if (data) {
+            setRedirect( {pathname: `/wines/${data.objectId}`})
+        }
+    }
+
+    if(redirect.pathname) {
+        return <Redirect to={redirect.pathname} />
+    }
+
     return (
-        <form onSubmit={handleChange}>
+        <form onSubmit={handleSubmit}>
             <label>
                 name
                 <input 
