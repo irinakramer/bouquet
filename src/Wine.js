@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import WinesAPI from './services/WinesAPI';
 import Flavor from './Flavor';
 
 const Wine = ({match}) => {
 
     const [wine, setWine] = useState({});
+    const [redirect, setRedirect] = useState({});
 
     // run on component mounting
     // run only if it changes
@@ -24,7 +25,12 @@ const Wine = ({match}) => {
         const data = await WinesAPI.destroy(wine.objectId);
 
         if(data) 
-            console.log("Wine deleted")
+            console.log("Wine deleted");
+            setRedirect( {pathname: "/"} );
+    }
+
+    if (redirect.pathname) {
+        return <Redirect to={redirect.pathname} />
     }
 
     const {objectId, 
