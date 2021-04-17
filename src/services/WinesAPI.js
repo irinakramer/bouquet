@@ -26,10 +26,23 @@ const destroy = objectId => {
     .then(response => response.json())
 }
 
+const create = wine => {
+    return fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            ...authHeaders  
+        },
+        body: JSON.stringify(wine)
+    })
+    .then(response => response.json())
+}
+
 const WinesAPI = {
     index,
     show,
-    destroy
+    destroy,
+    create
 };
 
 export default WinesAPI;
