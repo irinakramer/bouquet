@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import WinesAPI from '../services/WinesAPI';
 
-const WineForm = ({wine, setWine, buttonText, cancelPath}) => {
+const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
 
     const [redirect, setRedirect] = useState({});
 
@@ -17,7 +17,7 @@ const WineForm = ({wine, setWine, buttonText, cancelPath}) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const data = await WinesAPI.create(wine);
+        const data = await callApi();
 
         if (data) {
             setRedirect( {pathname: `/wines/${data.objectId}`})
