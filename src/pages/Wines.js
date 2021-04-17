@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
-import WineRow from './WineRow';
-import WinesAPI from './services/WinesAPI';
+import WineRow from '../components/WineRow';
+import WinesAPI from '../services/WinesAPI';
 
 const Wines = () => {
 

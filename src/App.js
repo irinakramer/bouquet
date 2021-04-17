@@ -1,9 +1,9 @@
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-import Search from './Search';
-import Wines from './Wines';
-import Wine from './Wine';
+import Search from './components/Search';
+import Wines from './pages/Wines';
+import Wine from './pages/Wine';
 
 const App = () => {
 

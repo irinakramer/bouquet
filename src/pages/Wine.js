@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import WinesAPI from './services/WinesAPI';
-import Flavor from './Flavor';
+import WinesAPI from '../services/WinesAPI';
+import Flavor from '../components/Flavor';
 
 const Wine = ({match}) => {
 

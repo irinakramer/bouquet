@@ -14,7 +14,7 @@ const index = () => {
 }
 
 const show = objectId => {
-    return fetch(memberUrl, {headers: authHeaders})
+    return fetch(memberUrl(objectId), {headers: authHeaders})
         .then(response => response.json())
 }
 
