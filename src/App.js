@@ -6,6 +6,7 @@ import Wines from './pages/Wines';
 import Wine from './pages/Wine';
 import WineNew from './pages/WineNew';
 import WineEdit from './pages/WineEdit';
+import NotFound from './pages/NotFound';
 
 const App = () => {
 
@@ -25,16 +26,19 @@ const App = () => {
         */}
 
         <Switch>
-          <Route exact path="/" component={Wines} />
+          
           <Route path="/wines/new" component={WineNew} />
           <Route path="/wines/:objectId/edit" render={ routeProps => 
             <WineEdit {...routeProps} />
           } />
-          <Route path="/search" component={Search} />
-          <Route exact path="/wines" component={Wines} />
           <Route path="/wines/:objectId" render={routeProps =>
             <Wine {...routeProps} />
           } />
+          <Route exact path="/" component={Wines} />
+          <Route path="/search" component={Search} />
+          <Route exact path="/wines" component={Wines} />
+          <Route path="/404" component={NotFound} />
+          <Route component={NotFound} />
         </Switch>
       </main>
 
