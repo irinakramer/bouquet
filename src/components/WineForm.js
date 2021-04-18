@@ -45,6 +45,70 @@ const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
                     onChange={handleChange}
                 />
             </label>
+            <label>
+                aromas
+                <input 
+                    name="aromas"
+                    defaultValue={wine.aromas}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                flowers
+                <input 
+                    name="flowers"
+                    defaultValue={wine.flowers}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                fruits
+                <input 
+                    name="fruits"
+                    defaultValue={wine.fruits}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                with bottle age
+                <input 
+                    name="withBottleAge"
+                    defaultValue={wine.withBottleAge}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                barrel aged
+                <input 
+                    name="barrelAged"
+                    defaultValue={wine.barrelAged}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                bonus
+                <input 
+                    name="bonus"
+                    defaultValue={wine.bonus}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                overview
+                <input 
+                    name="overview"
+                    defaultValue={wine.overview}
+                    onChange={handleChange}
+                />
+            </label>
+            <label>
+                where does it come from?
+                <input 
+                    name="regions"
+                    defaultValue={wine.regions}
+                    onChange={handleChange}
+                />
+            </label>
             <button>{buttonText}</button>
             <Link to={cancelPath}>Cancel</Link>
         </form>
