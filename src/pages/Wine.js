@@ -46,7 +46,6 @@ const Wine = ({match}) => {
             bonus, 
             fruits, 
             regions} = wine;
-   
 
     return (
         <div>
@@ -65,11 +64,8 @@ const Wine = ({match}) => {
                     width={'500px'}
                     height={'300px'}
                     chartType="GeoChart"
-                    data={regions && regions.map(r => Array(r))}
-
-                    // Note: you will need to get a mapsApiKey for your project.
-                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-                    mapsApiKey="YOUR_KEY_HERE"
+                    data={regions && ["Country", ...regions].map(r => Array(r))}
+                    mapsApiKey={process.env.REACT_APP_GEOCHARTS_API_KEY}
                     rootProps={{ 'data-testid': '1' }}
                 />
 
