@@ -7,15 +7,22 @@ const authHeaders = {
     'X-Parse-Javascript-Key': process.env.REACT_APP_PARSE_JAVASCRIPT_KEY
 }
 
+const handleAPIErrors = response => {
+    if(!response.ok) {
+        console.log("Error!", response)
+    }
+    return response.json();
+}
+
 const index = () => {
     return fetch(baseUrl, {headers: authHeaders})
-        .then(response => response.json())
+        .then(handleAPIErrors)
         .then(data => data.results)
 }
 
 const show = objectId => {
     return fetch(memberUrl(objectId), {headers: authHeaders})
-        .then(response => response.json())
+        .then(handleAPIErrors)
 }
 
 const destroy = objectId => {
@@ -23,7 +30,7 @@ const destroy = objectId => {
         method: 'DELETE',
         headers: authHeaders
     })
-    .then(response => response.json())
+    .then(handleAPIErrors)
 }
 
 const create = wine => {
@@ -35,9 +42,10 @@ const create = wine => {
         },
         body: JSON.stringify(wine)
     })
-    .then(response => response.json())
+    .then(handleAPIErrors)
 }
 
+// TODO: fix API error - 400, 404
 const update = wine => {
     return fetch(memberUrl(wine.objectId), {
         method: 'PUT',
@@ -47,7 +55,7 @@ const update = wine => {
         },
         body: JSON.stringify(wine)
     } )
-    .then(response => response.json())
+    .then(handleAPIErrors)
   }
 
 const WinesAPI = {
