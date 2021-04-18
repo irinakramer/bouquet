@@ -38,11 +38,24 @@ const create = wine => {
     .then(response => response.json())
 }
 
+const update = wine => {
+    return fetch(memberUrl(wine.objectId), {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            ...authHeaders
+        },
+        body: JSON.stringify(wine)
+    } )
+    .then(response => response.json())
+  }
+
 const WinesAPI = {
     index,
     show,
     destroy,
-    create
+    create,
+    update
 };
 
 export default WinesAPI;

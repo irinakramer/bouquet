@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import WinesAPI from '../services/WinesAPI';
 
 const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
 
@@ -34,7 +33,7 @@ const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
                 name
                 <input 
                     name="name"
-                    defaultValue={""}
+                    defaultValue={wine.name}
                     onChange={handleChange}
                 />
             </label>
@@ -42,7 +41,7 @@ const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
                 variety
                 <input 
                     name="variety"
-                    defaultValue={""}
+                    defaultValue={wine.variety}
                     onChange={handleChange}
                 />
             </label>
