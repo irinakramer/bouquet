@@ -1,7 +1,9 @@
 import {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import Chart from "react-google-charts";
 import WinesAPI from '../services/WinesAPI';
 import Flavor from '../components/Flavor';
+
 
 const Wine = ({match}) => {
 
@@ -44,7 +46,8 @@ const Wine = ({match}) => {
             bonus, 
             fruits, 
             regions} = wine;
-    
+   
+
     return (
         <div>
             <h1>{name}</h1>     
@@ -57,8 +60,19 @@ const Wine = ({match}) => {
             <p>{overview}</p>
 
             <h3>Where does it come from?</h3>
-            <ul>{regions && regions.map( (item, i) => <li key={i}>{item}</li>)}</ul>
-           
+
+                <Chart
+                    width={'500px'}
+                    height={'300px'}
+                    chartType="GeoChart"
+                    data={regions && regions.map(r => Array(r))}
+
+                    // Note: you will need to get a mapsApiKey for your project.
+                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                    mapsApiKey="YOUR_KEY_HERE"
+                    rootProps={{ 'data-testid': '1' }}
+                />
+
            <Link to={`/wines/${objectId}/edit`}>Edit</Link>
            <br></br><br></br><br></br>
            <Link to={""} onClick={handleDelete}>Delete</Link>
