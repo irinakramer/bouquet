@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import WinesAPI from '../services/WinesAPI';
 import Search from '../components/Search';
+import Button from '@material-ui/core/Button';
 
 const Wines = () => {
 
@@ -21,9 +22,7 @@ const Wines = () => {
     }, []);
 
     return (
-        <>
-            <Link to={"/wines/new"}>New Wine</Link>
-
+        <>       
             {
                 !fetching ? null : 
                 <p>Loading ... </p>
@@ -34,7 +33,15 @@ const Wines = () => {
                     <h1>All Wines</h1>
                     <Search wines={wines}  />
                 </div>
-            }           
+            }  
+
+            <Button 
+                component={Link} 
+                to={"/wines/new"} 
+                variant="contained" 
+                color="primary">
+                    New Wine
+            </Button>         
         </>
     )
 }
