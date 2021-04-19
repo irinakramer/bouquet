@@ -1,5 +1,9 @@
 import {useState} from 'react';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import WineRow from '../components/WineRow';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 const Search = ({wines}) => {
 
@@ -16,13 +20,25 @@ const Search = ({wines}) => {
 
     return (
         <div>
-            Search:
-            <input 
-                type="text"
-                placeholder="Search wines"
-                value={searchTerm}
-                onChange={handleChange}
-            />
+            <form noValidate autoComplete="off">
+                <TextField 
+                    id="outlined-search" 
+                    label="Search wines" 
+                    type="search" 
+                    variant="outlined"
+                    fullWidth
+                    value={searchTerm}
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <SearchIcon color="inherit" />
+                          </InputAdornment>
+                        ),
+                      }}
+                    
+                    />
+            </form>
             <ul>
                 {results.map( w => <WineRow key={w.objectId} {...w} />)}
             </ul>
