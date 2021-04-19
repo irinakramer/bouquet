@@ -14,9 +14,13 @@ const Wine = ({match}) => {
     // run only if it changes
     useEffect( () => {
         const fetchData = async () => {
-            const data = await WinesAPI.show(match.params.objectId);
+            const {data} = await WinesAPI.show(match.params.objectId);
             console.log(data)
-            data ? setWine(data) : console.log("Error")
+            if(data) 
+                setWine(data)
+            else {
+                setRedirect( {pathname: "/404"} )
+            }
         }
         fetchData();
     }, [match.params.objectId])
@@ -24,7 +28,7 @@ const Wine = ({match}) => {
     const handleDelete = async e => {
         e.preventDefault();
 
-        const data = await WinesAPI.destroy(wine.objectId);
+        const {data} = await WinesAPI.destroy(wine.objectId);
 
         if(data) 
             console.log("Wine deleted");
@@ -45,6 +49,8 @@ const Wine = ({match}) => {
             overview, 
             bonus, 
             fruits, 
+            herbsAndSpices,
+            sweetVersion,
             regions} = wine;
 
     return (

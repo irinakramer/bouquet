@@ -13,7 +13,7 @@ const Search = ({wines}) => {
         setSearchTerm(e.target.value)
     }
 
-    const results = !searchTerm
+    const searchResults = !searchTerm
                 ? wines
                 : wines.filter( w => 
                     w.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -40,7 +40,7 @@ const Search = ({wines}) => {
                     />
             </form>
             <ul>
-                {results.map( w => <WineRow key={w.objectId} {...w} />)}
+                {searchResults.map( w => <WineRow key={w.objectId} {...w} />)}
             </ul>
         </div>
     )

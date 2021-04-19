@@ -16,10 +16,11 @@ const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const data = await callApi();
+        const {data} = await callApi();
+        console.log("wineform data", data)
 
         if (data) {
-            setRedirect( {pathname: `/wines/${data.objectId}`})
+            setRedirect( {pathname: `/wines/${wine.objectId}`})
         }
     }
 

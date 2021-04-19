@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {Redirect} from 'react-router-dom';
 
 import WinesAPI from '../services/WinesAPI';
 import WineForm from '../components/WineForm';
@@ -6,16 +7,24 @@ import WineForm from '../components/WineForm';
 const WineEdit = ({match}) => {
 
     const [wine, setWine] = useState({});
+    const [redirect, setRedirect] = useState({});
 
     // fetch Wine data from show api
     useEffect( () => {
         const fetchData = async () => {
-            const data = await WinesAPI.show(match.params.objectId);
+            const {data} = await WinesAPI.show(match.params.objectId);
             console.log(data)
-            data ? setWine(data) : console.log("Error")
+            if(data) 
+                setWine(data)
+            else {
+                setRedirect( {pathname: "/404"})
+            }
         }
         fetchData();
     }, [match.params.objectId])
+
+    if(redirect.pathname)
+        return <Redirect to={redirect.pathname} />
 
     return (
         <div>
