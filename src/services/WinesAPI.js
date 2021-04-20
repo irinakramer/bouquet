@@ -70,7 +70,6 @@ const create = wine => {
     .then(reformatResponseData);
 }
 
-// TODO: fix API error - 400, 404
 const update = wine => {
     return fetch(memberUrl(wine.objectId), {
         method: 'PUT',

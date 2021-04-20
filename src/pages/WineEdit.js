@@ -34,6 +34,7 @@ const WineEdit = ({match}) => {
                 setWine={setWine}
                 callApi={() => WinesAPI.update(wine)}
                 buttonText="Update Wine"
+                redirectTo={() => `/wines/${wine.objectId}`}
                 cancelPath={`/wines/${wine.objectId}`}
             />
 

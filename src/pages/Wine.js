@@ -30,9 +30,11 @@ const Wine = ({match}) => {
 
         const {data} = await WinesAPI.destroy(wine.objectId);
 
-        if(data) 
-            console.log("Wine deleted");
-            setRedirect( {pathname: "/"} );
+        if(data)
+            setRedirect( {pathname: "/"} )
+        else
+            setRedirect( {pathname: "/404"})
+
     }
 
     if (redirect.pathname) {

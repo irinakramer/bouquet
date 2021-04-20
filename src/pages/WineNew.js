@@ -13,6 +13,7 @@ const WineNew = () => {
                 wine={wine}
                 setWine={setWine}
                 callApi={() => WinesAPI.create(wine)}
+                redirectTo={wine => `/wines/${wine.objectId}`}
                 buttonText="Create Wine"
                 cancelPath="/" 
             />

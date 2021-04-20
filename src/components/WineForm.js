@@ -1,8 +1,9 @@
 import {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 
-const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
+const WineForm = ({wine, setWine, callApi, buttonText, redirectTo, cancelPath}) => {
 
+    const [errors, setErrors] = useState([]);
     const [redirect, setRedirect] = useState({});
 
     const handleChange = e => {
@@ -16,11 +17,15 @@ const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const {data} = await callApi();
+        const {data, errors} = await callApi();
         console.log("wineform data", data)
 
         if (data) {
-            setRedirect( {pathname: `/wines/${wine.objectId}`})
+            setRedirect( {
+                pathname: redirectTo(data)
+            })
+        } else {
+            setErrors(errors);
         }
     }
 
@@ -30,6 +35,16 @@ const WineForm = ({wine, setWine, callApi, buttonText, cancelPath}) => {
 
     return (
         <form onSubmit={handleSubmit}>
+            {
+                !errors.length ? null :
+                <div>
+                    <h2>{errors.length} error(s) prohibited this wine from being created.</h2>
+                    <ul>
+                        {errors.map((e, i) => <li key={i}>{e}</li>)}
+                    </ul>
+                </div>
+                    
+            }
             <label>
                 name
                 <input 
