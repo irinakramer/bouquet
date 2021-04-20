@@ -7,6 +7,7 @@ import Wine from './pages/Wine';
 import WineNew from './pages/WineNew';
 import WineEdit from './pages/WineEdit';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 const App = () => {
 
@@ -17,13 +18,6 @@ const App = () => {
       </header>
 
       <main>
-        
-        {/* TODO: link to All Wines and Search  */}
-        {/* 
-        <Search />
-        <Link to="/wines">All Wines</Link>
-        <Wines wines={WDB.wines} /> 
-        */}
 
         <Switch>
           
@@ -43,8 +37,7 @@ const App = () => {
       </main>
 
       <footer>
-        {/* <p>Final project for General Assembly React Development course</p>
-        <p>Copyright &copy; Irina Kramer 2021</p> */}
+        <Footer />
       </footer>
     </>
   );
