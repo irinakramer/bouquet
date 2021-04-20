@@ -14,7 +14,13 @@ import Avatar from '@material-ui/core/Avatar';
 const useStyles = makeStyles( (theme) => ({
     tbd: {
         backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(8, 0, 6)
+        padding: theme.spacing(8, 0, 6),
+    },
+    grid: {
+        marginBottom: theme.spacing(4),
+    },
+    title: {
+        margin: theme.spacing(5, 1),
     },
     avatar: {
         width: theme.spacing(10),
@@ -23,6 +29,9 @@ const useStyles = makeStyles( (theme) => ({
         textAlign: 'center',
         wordSpacing: '9999px',
     },
+    actionButtons: {
+        margin: theme.spacing(1),
+    }
 }))
 
 const Wine = ({match}) => {
@@ -76,18 +85,20 @@ const Wine = ({match}) => {
             sweetVersion,
             regions} = wine;
 
-            console.log(fruits, aromas, flowers, bonus)
+            console.log(fruits, aromas, flowers, bonus, regions);
+
+            const regionsList = regions && regions.join(', ');
 
 
     return (
         <div>
-            <Container className={""} maxWidth="md">
-                <Typography component="h1" variant="h2" align="center" color="textPrimary">
+            <Container maxWidth="md">
+                <Typography className={classes.title} component="h1" variant="h2" align="center" color="textPrimary">
                     {name}
                 </Typography>
 
             {/* All Flavors */} 
-            <Grid container spacing={4}>
+            <Grid className={classes.grid} container spacing={4} alignItems="center">
                 {
                     !fruits || !fruits.length ? null :
                     <>               
@@ -162,7 +173,7 @@ const Wine = ({match}) => {
                     !bonus || !bonus.length ? null :
                     <>               
                         <Grid item xs={3}>
-                            <Avatar className={classes.avatar}>bonus</Avatar>
+                            <Avatar className={classes.avatar}>Bonus</Avatar>
                         </Grid>
                         <Grid item xs={9}>
                             <GridList cols={5}>
@@ -175,28 +186,42 @@ const Wine = ({match}) => {
             {/* End All Flavors */} 
 
             
-            <Grid container spacing={4}>
-                <Grid item xs={3}>
-                    <Typography component="h2" variant="h6" color="textPrimary">
-                        Overview:
-                    </Typography>
-                    <Typography variant="body1" color="textPrimary" paragraph>
-                        {overview}
-                    </Typography>
-                </Grid>
-                <Grid item xs={9}>
-                    <Typography component="h2" variant="h6" color="textPrimary">
-                        Where does it come from?
-                    </Typography>
-                    <Chart
-                        width={'500px'}
-                        height={'300px'}
-                        chartType="GeoChart"
-                        data={regions && ["Country", ...regions].map(r => Array(r))}
-                        mapsApiKey={process.env.REACT_APP_GEOCHARTS_API_KEY}
-                        rootProps={{ 'data-testid': '1' }}
-                    />
-                </Grid>
+            <Grid className={classes.grid} container spacing={4}>
+                {
+                    !overview ? null :
+                    <>
+                        <Grid item xs={3}>
+                            <Typography component="h2" variant="h6" color="textPrimary" paragraph>
+                                Overview:
+                            </Typography>
+                            <Typography variant="body1" color="textPrimary" paragraph>
+                                {overview}
+                            </Typography>
+                        </Grid>
+                    </>
+                }
+
+                {
+                    !regions || !regions.length ? null :
+                    <>
+                        <Grid item xs={9}>
+                            <Typography component="h2" variant="h6" color="textPrimary" paragraph>
+                                Where does it come from?
+                            </Typography>
+                            <Typography variant="body1" color="textPrimary" paragraph>
+                                {regions && regions.join(', ')}
+                            </Typography>
+                            <Chart
+                                width={'600px'}
+                                height={'400px'}
+                                chartType="GeoChart"
+                                data={regions && ["Country", ...regions].map(r => Array(r))}
+                                mapsApiKey={process.env.REACT_APP_GEOCHARTS_API_KEY}
+                                rootProps={{ 'data-testid': '1' }}
+                            />
+                        </Grid>
+                    </>
+                }              
             </Grid>
 
 
@@ -205,6 +230,7 @@ const Wine = ({match}) => {
                 <Button 
                     component={Link} 
                     to={`/wines/${objectId}/edit`} 
+                    className={classes.actionButtons}
                     variant="outlined" 
                     color="primary"
                     size="small">
@@ -214,6 +240,7 @@ const Wine = ({match}) => {
                     component={Link} 
                     to={""} 
                     onClick={handleDelete}
+                    className={classes.actionButtons}
                     variant="outlined" 
                     color="primary"
                     size="small">
