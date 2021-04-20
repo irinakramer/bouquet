@@ -1,13 +1,29 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import WinesAPI from '../services/WinesAPI';
-import Search from '../components/Search';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import {makeStyles} from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import WineRow from '../components/WineRow';
+import SearchIcon from '@material-ui/icons/Search';
+import List from '@material-ui/core/List';
+
+const useStyles = makeStyles( (theme) => ({
+    heroContent: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(8, 0, 6)
+    }
+}))
 
 const Wines = () => {
+    const classes = useStyles();
 
     const [fetching, setFetching] = useState(false);
     const [wines, setWines] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect( () => {
         const fetchData = async () => {
@@ -21,27 +37,86 @@ const Wines = () => {
 
     }, []);
 
+    const handleChange = e => {
+        setSearchTerm(e.target.value)
+    }
+
+    const searchResults = !searchTerm
+                ? wines
+                : wines.filter( w => 
+                    w.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
     return (
-        <>       
+        <>
+        {/* Hero unit */}
+        <div className={classes.heroContent}>
+            <Container maxWidth="sm">
+                <Typography component="h1" variant="h2" align="center" color="textPrimary">
+                    Discover the Bouquet
+                </Typography>
+                <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                    Something short and leading about the collection below—its contents, the creator, etc.
+                Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+                entirely.
+                </Typography>
+            </Container>
+        </div>
+        {/* End hero unit */}
+
+        {/* Search form */}
+        <Container maxWidth="sm" spacing={2}>
+            <form noValidate autoComplete="off">
+                <TextField 
+                    id="outlined-search" 
+                    label="Search wines" 
+                    type="search" 
+                    variant="outlined"
+                    fullWidth
+                    value={searchTerm}
+                    onChange={handleChange}
+                    InputProps={{
+                        endAdornment: (
+                        <InputAdornment position="end">
+                            <SearchIcon color="inherit" />
+                        </InputAdornment>
+                        ),
+                    }}                         
+                />
+                </form>
+            </Container>
+        {/* End Search form */}
+
+        
+        <Container maxWidth="sm" align="center">
+            {/* All wines */}
             {
                 !fetching ? null : 
                 <p>Loading ... </p>
             }
             {
                 fetching ? null :
-                <div>
-                    <h1>All Wines</h1>
-                    <Search wines={wines}  />
-                </div>
-            }  
+                <List>
+                    {searchResults.map( w => <WineRow key={w.objectId} {...w} />)}
+                </List>
+            } 
+            {/* End All wines */} 
 
+            <Typography  variant="body1" align="center" color="textPrimary" paragraph>
+                Not finding what you're looking for? {' '}
+            </Typography>
+            
             <Button 
                 component={Link} 
                 to={"/wines/new"} 
-                variant="contained" 
-                color="primary">
-                    New Wine
-            </Button>         
+                variant="outlined" 
+                color="primary"
+                size="small">
+                New Wine
+            </Button> 
+
+        </Container>
+
+               
         </>
     )
 }
