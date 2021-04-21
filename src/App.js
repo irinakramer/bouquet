@@ -8,19 +8,38 @@ import WineNew from './pages/WineNew';
 import WineEdit from './pages/WineEdit';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  typography: {
+    h1: {
+      fontFamily: ['Merriweather','serif'].join(','),
+      fontWeight: '900',
+      textTransform: 'uppercase',
+    },
+    h2: {
+      fontFamily: ['Merriweather','serif'].join(','),
+      fontWeight: '900',
+      textTransform: 'uppercase',
+    },
+    h6: {
+      fontFamily: ['Merriweather','serif'].join(','),
+      fontWeight: '400',
+      textTransform: 'uppercase',
+    }
+  },
+})
 
 const App = () => {
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <header>
         <NavBar />     
       </header>
 
       <main>
-
-        <Switch>
-          
+        <Switch>        
           <Route path="/wines/new" component={WineNew} />
           <Route path="/wines/:objectId/edit" render={ routeProps => 
             <WineEdit {...routeProps} />
@@ -39,7 +58,7 @@ const App = () => {
       <footer>
         <Footer />
       </footer>
-    </>
+    </ThemeProvider>
   );
 }
 
