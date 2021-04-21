@@ -14,7 +14,7 @@ const Flavor = (props) => {
 
     const classes = useStyles();
 
-    const imageName = props.flavor.split(' ').join('_');
+    const imageName = props.flavor.split(' ').join('');
     
     return (
         <li className={classes.listItem}>
