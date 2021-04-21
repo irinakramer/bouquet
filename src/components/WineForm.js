@@ -3,7 +3,6 @@ import {Link, Redirect} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 
@@ -11,7 +10,14 @@ const useStyles = makeStyles( (theme) => ({
     tbd: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(8, 0, 6)
-    }
+    },
+    form: {
+        width: '100%',
+        marginTop: theme.spacing(1),
+      },
+    actionButtons: {
+        margin: theme.spacing(1),
+    },
 }))
 
 const WineForm = ({wine, setWine, callApi, buttonText, redirectTo, cancelPath}) => {
@@ -23,7 +29,6 @@ const WineForm = ({wine, setWine, callApi, buttonText, redirectTo, cancelPath}) 
 
     const handleChange = e => {
         console.log("form changed");
-
 
         // If statement, check e.target.name is an array, then take e.target.value and split it
         // then save into a new var.
@@ -55,99 +60,164 @@ const WineForm = ({wine, setWine, callApi, buttonText, redirectTo, cancelPath}) 
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+
+        <form onSubmit={handleSubmit} className={classes.form} >
             {
                 !errors.length ? null :
-                <div>
-                    <h2>{errors.length} error(s) prohibited this wine from being created.</h2>
-                    <ul>
-                        {errors.map((e, i) => <li key={i}>{e}</li>)}
-                    </ul>
-                </div>
-                    
+                <>
+                    <Typography variant="h5">
+                        {errors.length} error(s) prohibited this wine from being created.
+                    </Typography>
+                    <Typography variant="body1">
+                        <ul>
+                            {errors.map((e, i) => <li key={i}>{e}</li>)}
+                        </ul>
+                    </Typography>
+                </>   
             }
-            <label>
-                name
-                <input 
-                    name="name"
-                    defaultValue={wine.name}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                variety
-                <input 
-                    name="variety"
-                    defaultValue={wine.variety}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                aromas
-                <input 
-                    name="aromas"
-                    defaultValue={wine.aromas}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                flowers
-                <input 
-                    name="flowers"
-                    defaultValue={wine.flowers}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                fruits
-                <input 
-                    name="fruits"
-                    defaultValue={wine.fruits}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                with bottle age
-                <input 
-                    name="withBottleAge"
-                    defaultValue={wine.withBottleAge}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                barrel aged
-                <input 
-                    name="barrelAged"
-                    defaultValue={wine.barrelAged}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                bonus
-                <input 
-                    name="bonus"
-                    defaultValue={wine.bonus}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                overview
-                <input 
-                    name="overview"
-                    defaultValue={wine.overview}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                where does it come from?
-                <input 
-                    name="regions"
-                    defaultValue={wine.regions}
-                    onChange={handleChange}
-                />
-            </label>
-            <button>{buttonText}</button>
-            <Link to={cancelPath}>Cancel</Link>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6} >
+                    <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="name"
+                        label="Wine name"
+                        name="name"
+                        autoFocus
+                        value={wine.name || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6} >
+                    <TextField
+                        variant="outlined"  
+                        required
+                        fullWidth
+                        id="variety"
+                        label="Variety"
+                        name="variety"
+                        autoFocus
+                        value={wine.variety || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"
+                        fullWidth
+                        id="aromas"
+                        label="Aromas"
+                        name="aromas"
+                        autoFocus
+                        value={wine.aromas || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                     
+                        fullWidth
+                        id="fruits"
+                        label="Fruits"
+                        name="fruits"
+                        autoFocus
+                        value={wine.fruits || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                       
+                        fullWidth
+                        id="flowers"
+                        label="Flowers"
+                        name="flowers"
+                        autoFocus
+                        value={wine.flowers || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+               <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                      
+                        fullWidth
+                        id="withBottleAge"
+                        label="with Bottle Age"
+                        name="withBottleAge"
+                        autoFocus
+                        value={wine.withBottleAge || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                      
+                        fullWidth
+                        id="barrelAged"
+                        label="Barrel Aged"
+                        name="barrelAged"
+                        autoFocus
+                        value={wine.barrelAged || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                       
+                        fullWidth
+                        id="bonus"
+                        label="Bonus"
+                        name="bonus"
+                        autoFocus
+                        value={wine.bonus || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                      
+                        fullWidth
+                        multiline
+                        rows={4}
+                        id="overview"
+                        label="Overview"
+                        name="overview"
+                        autoFocus
+                        value={wine.overview || ''}
+                        onChange={handleChange}
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                        variant="outlined"                    
+                        fullWidth
+                        id="regions"
+                        label="Where does it come from?"
+                        name="regions"
+                        autoFocus
+                        value={wine.regions || ''}
+                        onChange={handleChange}
+                    />
+                 </Grid>
+                 <Grid item xs={12} align="center">
+                    <Button 
+                        type="submit"
+                        variant="contained" 
+                        color="primary"
+                        className={classes.actionButtons}>
+                        {buttonText}
+                    </Button>  
+                    <Button 
+                        component={Link} 
+                        to={cancelPath} 
+                        variant="outlined" 
+                        color="primary"
+                        className={classes.actionButtons}>
+                        Cancel
+                    </Button>
+                </Grid>
+            </Grid>
         </form>
     )
 }

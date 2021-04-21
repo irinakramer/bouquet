@@ -3,8 +3,18 @@ import {Redirect} from 'react-router-dom';
 
 import WinesAPI from '../services/WinesAPI';
 import WineForm from '../components/WineForm';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles( (theme) => ({
+    title: {
+        margin: theme.spacing(5, 1),
+    },  
+}))
 
 const WineEdit = ({match}) => {
+    const classes = useStyles();
 
     const [wine, setWine] = useState({});
     const [redirect, setRedirect] = useState({});
@@ -27,8 +37,11 @@ const WineEdit = ({match}) => {
         return <Redirect to={redirect.pathname} />
 
     return (
-        <div>
-            <h1>Edit Wine</h1>
+
+        <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" className={classes.title}>
+                Edit Wine
+            </Typography>
             <WineForm
                 wine={wine}
                 setWine={setWine}
@@ -37,8 +50,7 @@ const WineEdit = ({match}) => {
                 redirectTo={() => `/wines/${wine.objectId}`}
                 cancelPath={`/wines/${wine.objectId}`}
             />
-
-        </div>
+        </Container>
     )
 }
 
