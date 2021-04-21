@@ -21,6 +21,7 @@ const useStyles = makeStyles( (theme) => ({
     },
     title: {
         margin: theme.spacing(5, 1),
+        textShadow: "0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black",
     },
     avatar: {
         width: theme.spacing(10),
@@ -31,6 +32,12 @@ const useStyles = makeStyles( (theme) => ({
     },
     actionButtons: {
         margin: theme.spacing(1),
+    },
+    white: {
+        color: "beige"
+    },
+    red: {
+        color: "lightpink"
     }
 }))
 
@@ -93,7 +100,11 @@ const Wine = ({match}) => {
     return (
         <div>
             <Container maxWidth="md">
-                <Typography className={classes.title} component="h1" variant="h2" align="center" color="textPrimary">
+                <Typography 
+                className={`${classes.title} ${variety === "white" ? classes.white : classes.red}`} 
+                component="h1" 
+                variant="h2" 
+                align="center">
                     {name}
                 </Typography>
 
@@ -192,7 +203,7 @@ const Wine = ({match}) => {
                     <>
                         <Grid item xs={3}>
                             <Typography component="h2" variant="h6" color="textPrimary" paragraph>
-                                Overview:
+                                Overview
                             </Typography>
                             <Typography variant="body1" color="textPrimary" paragraph>
                                 {overview}
