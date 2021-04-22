@@ -7,10 +7,6 @@ import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles( (theme) => ({
-    tbd: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(8, 0, 6)
-    },
     form: {
         width: '100%',
         marginTop: theme.spacing(1),
@@ -30,13 +26,12 @@ const WineForm = ({wine, setWine, callApi, buttonText, redirectTo, cancelPath}) 
     const handleChange = e => {
         console.log("form changed");
 
-        // If statement, check e.target.name is an array, then take e.target.value and split it
-        // then save into a new var.
-        // if it's not one of those targets then use e.target.value
-
+        // check for string fields (name, variety, overview) and assign them sting values,
+        // otherwise split into array and assign array values
         setWine(prevWine => ({
             ...prevWine,
-            [e.target.name]: e.target.valueAsNumber || e.target.value
+            [e.target.name]: e.target.name === 'name' || e.target.name === 'variety' || e.target.name === 'overview' 
+                            ? e.target.value : e.target.value.split(',')
         }))
     }
 
