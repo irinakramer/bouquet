@@ -109,8 +109,7 @@ const Wines = () => {
                 component={Link} 
                 to={"/wines/new"} 
                 variant="outlined" 
-                color="primary"
-                size="small">
+                color="primary">
                 New Wine
             </Button> 
 

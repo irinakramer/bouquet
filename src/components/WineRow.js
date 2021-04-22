@@ -4,10 +4,10 @@ import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
     white: {
-        backgroundColor: "beige"
+        backgroundColor: theme.palette.secondary.light,
     },
     red: {
-        backgroundColor: "lightpink"
+        backgroundColor: theme.palette.primary.light,
     },
     listItem: {
         margin: theme.spacing(2, 0),

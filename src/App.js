@@ -11,6 +11,20 @@ import Footer from './components/Footer';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#f6a5c0',
+      main: '#ad1457',
+      dark: '#790e3c',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ffea98',
+      main: '#ffc400',
+      dark: '#b28900',
+      contrastText: '#000',
+    },
+  },
   typography: {
     h1: {
       fontFamily: ['Merriweather','serif'].join(','),

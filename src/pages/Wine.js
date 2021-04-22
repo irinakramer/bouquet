@@ -34,10 +34,10 @@ const useStyles = makeStyles( (theme) => ({
         margin: theme.spacing(1),
     },
     white: {
-        color: "beige"
+        color: theme.palette.secondary.light,
     },
     red: {
-        color: "lightpink"
+        color: theme.palette.primary.light,
     }
 }))
 
@@ -227,6 +227,9 @@ const Wine = ({match}) => {
                                 height={'400px'}
                                 chartType="GeoChart"
                                 data={regions && ["Country", ...regions].map(r => Array(r))}
+                                options={{
+                                    defaultColor: `${variety === "white" ? '#ffc400' : '#ad1457'}`,                                   
+                                  }}
                                 mapsApiKey={process.env.REACT_APP_GEOCHARTS_API_KEY}
                                 rootProps={{ 'data-testid': '1' }}
                             />
@@ -243,8 +246,7 @@ const Wine = ({match}) => {
                     to={`/wines/${objectId}/edit`} 
                     className={classes.actionButtons}
                     variant="outlined" 
-                    color="primary"
-                    size="small">
+                    color="primary">
                     Edit Wine
                 </Button> 
                 <Button 
@@ -253,8 +255,7 @@ const Wine = ({match}) => {
                     onClick={handleDelete}
                     className={classes.actionButtons}
                     variant="outlined" 
-                    color="primary"
-                    size="small">
+                    color="primary">
                     Delete Wine
                 </Button> 
 
