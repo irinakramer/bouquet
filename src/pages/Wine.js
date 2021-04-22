@@ -111,7 +111,7 @@ const Wine = ({match}) => {
             {/* All Flavors */} 
             <Grid className={classes.grid} container spacing={4} alignItems="center">
                 {
-                    !fruits || !fruits.length ? null :
+                    !fruits || !fruits.length || fruits[0] === '' ? null :
                     <>               
                         <Grid item xs={3}>
                             <Avatar className={classes.avatar}>Fruits</Avatar>
@@ -125,7 +125,7 @@ const Wine = ({match}) => {
                 }
 
                 {
-                    !flowers || !flowers.length? null :
+                    !flowers || !flowers.length || flowers[0] === '' ? null :
                     <>               
                         <Grid item xs={3}>
                             <Avatar className={classes.avatar}>Flowers</Avatar>
@@ -139,7 +139,7 @@ const Wine = ({match}) => {
                 }
 
                 {
-                    !aromas || !aromas.length ? null :
+                    !aromas || !aromas.length || aromas[0] === '' ? null :
                     <>               
                         <Grid item xs={3}>
                             <Avatar className={classes.avatar}>Aromas</Avatar>
@@ -153,7 +153,7 @@ const Wine = ({match}) => {
                 }
 
                 {
-                    !withBottleAge || !withBottleAge.length ? null :
+                    !withBottleAge || !withBottleAge.length || withBottleAge[0] === '' ? null :
                     <>               
                         <Grid item xs={3}>
                             <Avatar className={classes.avatar}>with Bottle Age</Avatar>
@@ -167,7 +167,7 @@ const Wine = ({match}) => {
                 }
 
                 {
-                    !barrelAged || !barrelAged.length ? null :
+                    !barrelAged || !barrelAged.length || barrelAged[0] === '' ? null :
                     <>               
                         <Grid item xs={3}>
                             <Avatar className={classes.avatar}>Barrel Aged</Avatar>
@@ -181,7 +181,7 @@ const Wine = ({match}) => {
                 }
 
                 {
-                    !bonus || !bonus.length ? null :
+                    !bonus || !bonus.length || bonus[0] === '' ? null :
                     <>               
                         <Grid item xs={3}>
                             <Avatar className={classes.avatar}>Bonus</Avatar>

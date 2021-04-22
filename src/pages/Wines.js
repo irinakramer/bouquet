@@ -55,9 +55,9 @@ const Wines = () => {
                     Discover the Bouquet
                 </Typography>
                 <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                    Something short and leading about the collection below—its contents, the creator, etc.
-                Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                entirely.
+                    When you take a sip of wine, focus on looking, smelling, tasting and feeling.
+                    This guide helps you find the aromas and scents present in common wine families.
+                    Learn to taste better!
                 </Typography>
             </Container>
         </div>
