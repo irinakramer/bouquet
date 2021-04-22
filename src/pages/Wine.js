@@ -34,10 +34,10 @@ const useStyles = makeStyles( (theme) => ({
         margin: theme.spacing(1),
     },
     white: {
-        color: theme.palette.secondary.light,
+        color: theme.palette.secondary.main,
     },
     red: {
-        color: theme.palette.primary.light,
+        color: theme.palette.primary.main,
     }
 }))
 
