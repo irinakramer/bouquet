@@ -228,7 +228,7 @@ const Wine = ({match}) => {
                                 chartType="GeoChart"
                                 data={regions && ["Country", ...regions].map(r => Array(r))}
                                 options={{
-                                    defaultColor: `${variety === "white" ? '#ffc400' : '#ad1457'}`,                                   
+                                    defaultColor: `${variety === "white" ? '#ffd54f' : '#ce467b'}`,                                   
                                   }}
                                 mapsApiKey={process.env.REACT_APP_GEOCHARTS_API_KEY}
                                 rootProps={{ 'data-testid': '1' }}

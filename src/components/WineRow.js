@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
     white: {
@@ -9,9 +10,8 @@ const useStyles = makeStyles(theme => ({
     red: {
         backgroundColor: theme.palette.primary.light,
     },
-    listItem: {
-        margin: theme.spacing(2, 0),
-        borderRadius: theme.spacing(1),
+    button: {
+        margin: theme.spacing(1),
 
     }
 }))
@@ -19,12 +19,20 @@ const useStyles = makeStyles(theme => ({
 const WineRow = ({objectId, name, variety}) => {
     const classes = useStyles();   
     return (
-        <ListItem button 
-            component={Link}
-            className={`${classes.listItem} ${variety === "white" ? classes.white : classes.red}`} 
-            to={`/wines/${objectId}`}>
-                {name}
-        </ListItem>
+        // <ListItem button 
+        //     component={Link}
+        //     className={`${classes.listItem} ${variety === "white" ? classes.white : classes.red}`} 
+        //     to={`/wines/${objectId}`}>
+        //         {name}
+        // </ListItem>
+         <Button 
+         component={Link} 
+         to={`/wines/${objectId}`}
+         variant="contained" 
+         color={`${variety === "red"  ? "primary" : "secondary" }`}
+         className={classes.button}>
+         {name}
+     </Button> 
     )
 }
 

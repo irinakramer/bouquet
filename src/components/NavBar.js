@@ -3,11 +3,18 @@ import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
+import {makeStyles} from '@material-ui/core/styles';
 
+const useStyles = makeStyles( (theme) => ({
+    navbar: {
+        borderTop: '20px solid #87103f',
+    }
+}))
 const NavBar = () => {
+    const classes = useStyles();
     return(
             <AppBar position="static">
-                <ToolBar>
+                <ToolBar className={classes.navbar}>
                     <Button 
                         component={Link} 
                         startIcon={<HomeIcon />}
