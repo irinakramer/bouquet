@@ -6,7 +6,7 @@ const useStyles = makeStyles( theme => ({
         padding: theme.spacing(1),
     },
     flavorImg: {
-        maxWidth: '50px',
+        maxWidth: '75px',
         '@media (min-width:600px)': {
             maxWidth: '100px',
           },

@@ -30,7 +30,7 @@ const useStyles = makeStyles( (theme) => ({
     avatar: {
         width: theme.spacing(7),
         height: theme.spacing(7),       
-        fontSize: '0.75rem',
+        fontSize: '0.85rem',
         textAlign: 'center',
         wordSpacing: '9999px',
         '@media (min-width:600px)': {
