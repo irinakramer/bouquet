@@ -8,11 +8,13 @@ This project is a web app where user can search for a wine family and get inform
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The backend functionality is provided by  [Back4App](https://www.back4app.com/).
+Backend functionality is provided by  [Back4App](https://www.back4app.com/).
 
-The maps are built with [React Google Charts](https://react-google-charts.com/).
+Maps are provided by [React Google Charts](https://react-google-charts.com/).
 
-Design is created with [Material UI](https://material-ui.com/).
+Design is using components from [Material UI](https://material-ui.com/).
+
+Art is created by my daughter :smile:
 
 
 ## Prerequisites & Installation
