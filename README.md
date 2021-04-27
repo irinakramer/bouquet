@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Bouquet - Wine Tasting App
+
+Capstone final project from the General Assembly React Development course. 
+
+## Description and features
+
+This project is a web app where user can search for a wine family and get information on aromas and scents present in this type of wine, as well as overview and where the wine comes from. A user can add new wine, edit and delete. It's and full CRUD app. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The backend functionality is provided by  [Back4App](https://www.back4app.com/).
 
-In the project directory, you can run:
+The maps are built with [React Google Charts](https://react-google-charts.com/).
 
-### `npm start`
+Design is created with [Material UI](https://material-ui.com/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisite & Installation
+Follow these steps to get started:
 
-### `npm test`
+1. Clone this repo:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```git clone https://github.com/irinakramer/bouquet.git```
 
-### `npm run build`
+To install your depencies run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```npm install``` 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Next you'll need API keys from Back4App and from Google Charts. Add them inside your .env.local:
 
-### `npm run eject`
+```
+REACT_APP_PARSE_APPLICATION_ID=your_key_here
+REACT_APP_PARSE_JAVASCRIPT_KEY=your_key_here
+REACT_APP_GEOCHARTS_API_KEY=your_key_here
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Run `npm start` in your terminal and go to `http:localhost:3000` to check that your app is working. If you don't see an image on the page, check that your api key is set up correctly.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Demo
+Homepage:
 
-## Learn More
+![Bouquet - homepage](/public/images/bouquet-home-screenshot.png?raw=true "Bouquet wine tasting - homepage")
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Wine page:
 
-### Code Splitting
+![Bouquet - wine page](/public/images/bouquet-wine-screenshot.png?raw=true "Bouquet wine tasting - wine page")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+Code is created by Irina Kramer.
