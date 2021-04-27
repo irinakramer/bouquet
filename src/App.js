@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     secondary: {
       light: '#ffe69b',
       main: '#ffe082',
-      dark: '#ffc107',
+      dark: '#e6ca75',
       contrastText: '#000',
     },
   },
@@ -32,14 +32,28 @@ const theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     h2: {
-      fontFamily: ['Merriweather','serif'].join(','),
+      fontFamily: ['Merriweather','serif'].join(','), 
       fontWeight: '900',
       textTransform: 'uppercase',
+      fontSize: '2.2rem',
+      '@media (min-width:600px)': {
+        fontSize: '3.75rem',
+      },
+    },
+    h5: {
+      fontSize: '1.2rem',
+      '@media (min-width:600px)': {
+        fontSize: '1.5rem',
+      },
     },
     h6: {
       fontFamily: ['Merriweather','serif'].join(','),
-      fontWeight: '400',
+      fontWeight: '900',
       textTransform: 'uppercase',
+      fontSize: '1rem',
+      '@media (min-width:600px)': {
+        fontSize: '1.25rem',
+      },
     }
   },
 })

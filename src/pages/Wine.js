@@ -16,19 +16,28 @@ const useStyles = makeStyles( (theme) => ({
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(8, 0, 6),
     },
+    paper: {
+        padding: theme.spacing(1, 3),
+    },
     grid: {
         marginBottom: theme.spacing(4),
     },
     title: {
         margin: theme.spacing(5, 1),
+        wordWrap: 'break-word',
         textShadow: "0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black",
     },
     avatar: {
-        width: theme.spacing(10),
-        height: theme.spacing(10),
-        fontSize: '1rem',
+        width: theme.spacing(7),
+        height: theme.spacing(7),       
+        fontSize: '0.75rem',
         textAlign: 'center',
         wordSpacing: '9999px',
+        '@media (min-width:600px)': {
+            width: theme.spacing(10),
+            height: theme.spacing(10),
+            fontSize: '1rem',
+          },
     },
     actionButtons: {
         margin: theme.spacing(1),
@@ -38,6 +47,12 @@ const useStyles = makeStyles( (theme) => ({
     },
     red: {
         color: theme.palette.primary.main,
+    },
+    separator: {
+        border: '0',
+        height: '0',
+        borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
     }
 }))
 
@@ -109,7 +124,7 @@ const Wine = ({match}) => {
                 </Typography>
 
             {/* All Flavors */} 
-            <Grid className={classes.grid} container spacing={4} alignItems="center">
+            <Grid className={classes.grid} container spacing={3} alignItems="center">
                 {
                     !fruits || !fruits.length || fruits[0] === '' ? null :
                     <>               
@@ -121,6 +136,7 @@ const Wine = ({match}) => {
                                 {fruits.map( (item, i) => <Flavor key={i} flavor={item} />)}
                             </GridList>
                         </Grid>
+                        <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
                 }
 
@@ -135,6 +151,7 @@ const Wine = ({match}) => {
                                 {flowers.map( (item, i) => <Flavor key={i} flavor={item} />)}
                             </GridList>
                         </Grid>
+                        <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
                 }
 
@@ -149,6 +166,7 @@ const Wine = ({match}) => {
                                 {aromas.map( (item, i) => <Flavor key={i} flavor={item} />)}
                             </GridList>
                         </Grid>
+                        <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
                 }
 
@@ -163,6 +181,7 @@ const Wine = ({match}) => {
                                 {withBottleAge.map( (item, i) => <Flavor key={i} flavor={item} />)}
                             </GridList>
                         </Grid>
+                        <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
                 }
 
@@ -177,6 +196,7 @@ const Wine = ({match}) => {
                                 {barrelAged.map( (item, i) => <Flavor key={i} flavor={item} />)}
                             </GridList>
                         </Grid>
+                        <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
                 }
 
@@ -191,6 +211,7 @@ const Wine = ({match}) => {
                                 {bonus.map( (item, i) => <Flavor key={i} flavor={item} />)}
                             </GridList>
                         </Grid>
+                        <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
                 }
             </Grid>
@@ -201,7 +222,7 @@ const Wine = ({match}) => {
                 {
                     !overview ? null :
                     <>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} sm={3}>
                             <Typography component="h2" variant="h6" color="textPrimary" paragraph>
                                 Overview
                             </Typography>
@@ -215,7 +236,7 @@ const Wine = ({match}) => {
                 {
                     !regions || !regions.length ? null :
                     <>
-                        <Grid item xs={9}>
+                        <Grid item xs={12} sm={9}>
                             <Typography component="h2" variant="h6" color="textPrimary" paragraph>
                                 Where does it come from?
                             </Typography>

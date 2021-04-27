@@ -14,7 +14,10 @@ import List from '@material-ui/core/List';
 const useStyles = makeStyles( (theme) => ({
     heroContent: {
         backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(8, 0, 6)
+        padding: theme.spacing(3, 0, 1),
+        '@media (min-width:600px)': {
+            padding: theme.spacing(8, 0, 6),
+          },
     }
 }))
 
