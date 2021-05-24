@@ -40,9 +40,25 @@ const Wines = () => {
 
     }, []);
 
-    const handleChange = e => {
-        setSearchTerm(e.target.value)
+    const debounce = (fn, time) => {
+        let setTimeoutId;
+    
+        return function() {
+            if(setTimeoutId) {
+                clearTimeout(setTimeoutId);
+            }
+            setTimeoutId = setTimeout( () => {
+                fn.apply(this, arguments);
+                setTimeoutId = null;
+            }, time)
+        }
     }
+
+    // debounced function
+    const handleChange = debounce(function (e) {
+        setSearchTerm(e.target.value);
+    }, 500);
+
 
     const searchResults = !searchTerm
                 ? wines
@@ -72,10 +88,9 @@ const Wines = () => {
                 <TextField 
                     id="outlined-search" 
                     label="Search wines" 
-                    type="search" 
+                    type="text" 
                     variant="outlined"
                     fullWidth
-                    value={searchTerm}
                     onChange={handleChange}
                     InputProps={{
                         endAdornment: (
