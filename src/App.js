@@ -62,9 +62,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <header>
-        <NavBar />     
-      </header>
+      <NavBar />     
 
       <main>
         <Switch>        

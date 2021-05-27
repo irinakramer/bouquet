@@ -19,12 +19,6 @@ const useStyles = makeStyles(theme => ({
 const WineRow = ({objectId, name, variety}) => {
     const classes = useStyles();   
     return (
-        // <ListItem button 
-        //     component={Link}
-        //     className={`${classes.listItem} ${variety === "white" ? classes.white : classes.red}`} 
-        //     to={`/wines/${objectId}`}>
-        //         {name}
-        // </ListItem>
          <Button 
          component={Link} 
          to={`/wines/${objectId}`}
@@ -32,7 +26,7 @@ const WineRow = ({objectId, name, variety}) => {
          color={`${variety === "red"  ? "primary" : "secondary" }`}
          className={classes.button}>
          {name}
-     </Button> 
+        </Button> 
     )
 }
 

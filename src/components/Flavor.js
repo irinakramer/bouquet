@@ -21,7 +21,7 @@ const Flavor = (props) => {
     
     return (
         <li className={classes.listItem}>
-            <img className={classes.flavorImg} src={process.env.PUBLIC_URL + `/images/${imageName}.png`} />
+            <img className={classes.flavorImg} alt={`${imageName} icon`} src={process.env.PUBLIC_URL + `/images/${imageName}.png`} />
             <Typography variant="caption" align="center" color="textPrimary" display="block" >
                 {props.flavor}
             </Typography>         

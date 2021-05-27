@@ -9,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import WineRow from '../components/WineRow';
 import SearchIcon from '@material-ui/icons/Search';
-import List from '@material-ui/core/List';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles( (theme) => ({
     heroContent: {
@@ -105,7 +105,7 @@ const Wines = () => {
         {/* End Search form */}
 
         
-        <Container maxWidth="sm" align="center">
+        <Container maxWidth="sm" align="center" p={2}>
             {/* All wines */}
             {
                 !fetching ? null : 
@@ -113,9 +113,10 @@ const Wines = () => {
             }
             {
                 fetching ? null :
-                <List>
-                    {searchResults.map( w => <WineRow key={w.objectId} {...w} />)}
-                </List>
+                <Box p={2}>
+                    {searchResults.map( w => <WineRow key={w.objectId} {...w} />)} 
+                </Box>       
+                            
             } 
             {/* End All wines */} 
 

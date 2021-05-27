@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Chart from "react-google-charts";
 import WinesAPI from '../services/WinesAPI';
@@ -30,9 +30,11 @@ const useStyles = makeStyles( (theme) => ({
     avatar: {
         width: theme.spacing(7),
         height: theme.spacing(7),       
-        fontSize: '0.85rem',
+        fontSize: '0.80rem',
         textAlign: 'center',
         wordSpacing: '9999px',
+        backgroundColor: '#bdbdbd',
+        color: 'rgb(0 0 0 / 87%)',
         '@media (min-width:600px)': {
             width: theme.spacing(10),
             height: theme.spacing(10),
@@ -249,10 +251,11 @@ const Wine = ({match}) => {
                                 chartType="GeoChart"
                                 data={regions && ["Country", ...regions].map(r => Array(r))}
                                 options={{
-                                    defaultColor: `${variety === "white" ? '#ffd54f' : '#ce467b'}`,                                   
+                                    defaultColor: `${variety === "white" ? '#ffd54f' : '#ce467b'}`,                    
                                   }}
                                 mapsApiKey={process.env.REACT_APP_GEOCHARTS_API_KEY}
                                 rootProps={{ 'data-testid': '1' }}
+                                role="application"
                             />
                         </Grid>
                     </>
