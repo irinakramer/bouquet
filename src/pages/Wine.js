@@ -70,7 +70,7 @@ const Wine = ({match}) => {
     useEffect( () => {
         const fetchData = async () => {
             const {data} = await WinesAPI.show(match.params.objectId);
-            console.log(data)
+            
             if(data) 
                 setWine(data)
             else {
@@ -109,9 +109,9 @@ const Wine = ({match}) => {
             sweetVersion,
             regions} = wine;
 
-            console.log(fruits, aromas, flowers, bonus, regions);
+            //console.log(fruits, aromas, flowers, bonus, regions);
 
-            const regionsList = regions && regions.join(', ');
+            //const regionsList = regions && regions.join(', ');
 
 
     return (

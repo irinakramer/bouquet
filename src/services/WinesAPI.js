@@ -10,8 +10,8 @@ const authHeaders = {
 const reformatResponseData = response => {
 
     const reformatWine = (wine) => {
-        console.log(wine);
         const {objectId, name, variety, aromas, flowers, fruits, bonus, barrelAged, withBottleAge, herbsAndSpices, sweetVersion, overview, regions} = wine;
+        
         return {objectId, name, variety, aromas, flowers, fruits, bonus, barrelAged, withBottleAge, herbsAndSpices, sweetVersion, overview, regions};
     }
   

@@ -32,7 +32,7 @@ const Wines = () => {
         const fetchData = async () => {
             setFetching(true);
             const {data} = await WinesAPI.index();
-            console.log("fetched data: ", data);
+            //console.log("fetched data: ", data);
             data ? setWines(data) : console.log("ERROR");
             setFetching(false);
         }
