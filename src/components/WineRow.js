@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core';
-import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({

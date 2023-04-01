@@ -1,4 +1,5 @@
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import './App.css';
 import NavBar from './components/NavBar';
 import Search from './components/Search';
@@ -8,9 +9,8 @@ import WineNew from './pages/WineNew';
 import WineEdit from './pages/WineEdit';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       light: '#ce467b',
