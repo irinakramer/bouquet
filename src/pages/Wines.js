@@ -1,15 +1,15 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import WinesAPI from '../services/WinesAPI';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import {makeStyles} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import {makeStyles} from '@mui/styles';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 import WineRow from '../components/WineRow';
-import SearchIcon from '@material-ui/icons/Search';
-import Box from '@material-ui/core/Box';
+import SearchIcon from '@mui/icons-material/Search';
+import Box from '@mui/material/Box';
 
 const useStyles = makeStyles( (theme) => ({
     heroContent: {

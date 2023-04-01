@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@mui/material';
 import './App.css';
 import NavBar from './components/NavBar';
 import Search from './components/Search';

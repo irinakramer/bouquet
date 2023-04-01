@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
-import AppBar from '@material-ui/core/AppBar';
-import ToolBar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import HomeIcon from '@material-ui/icons/Home';
-import {makeStyles} from '@material-ui/core/styles';
+import AppBar from '@mui/material/AppBar';
+import ToolBar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import HomeIcon from '@mui/icons-material/Home';
+import {makeStyles} from '@mui/styles';
 
 const useStyles = makeStyles( (theme) => ({
     navbar: {

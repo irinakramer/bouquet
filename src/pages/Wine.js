@@ -3,13 +3,13 @@ import {Link, Redirect} from 'react-router-dom';
 import Chart from "react-google-charts";
 import WinesAPI from '../services/WinesAPI';
 import Flavor from '../components/Flavor';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import {makeStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import GridList from '@material-ui/core/GridList';
-import Avatar from '@material-ui/core/Avatar';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import {makeStyles} from '@mui/styles';
+import Grid from '@mui/material/Grid';
+import ImageList from '@mui/material/ImageList';
+import Avatar from '@mui/material/Avatar';
 
 const useStyles = makeStyles( (theme) => ({
     tbd: {
@@ -134,9 +134,9 @@ const Wine = ({match}) => {
                             <Avatar className={classes.avatar}>Fruits</Avatar>
                         </Grid>
                         <Grid item xs={9}>
-                            <GridList cols={5}>
+                            <ImageList cols={5}>
                                 {fruits.map( (item, i) => <Flavor key={i} flavor={item} />)}
-                            </GridList>
+                            </ImageList>
                         </Grid>
                         <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
@@ -149,9 +149,9 @@ const Wine = ({match}) => {
                             <Avatar className={classes.avatar}>Flowers</Avatar>
                         </Grid>
                         <Grid item xs={9}>
-                            <GridList cols={5}>
+                            <ImageList cols={5}>
                                 {flowers.map( (item, i) => <Flavor key={i} flavor={item} />)}
-                            </GridList>
+                            </ImageList>
                         </Grid>
                         <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
@@ -164,9 +164,9 @@ const Wine = ({match}) => {
                             <Avatar className={classes.avatar}>Aromas</Avatar>
                         </Grid>
                         <Grid item xs={9}>
-                            <GridList cols={5}>
+                            <ImageList cols={5}>
                                 {aromas.map( (item, i) => <Flavor key={i} flavor={item} />)}
-                            </GridList>
+                            </ImageList>
                         </Grid>
                         <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
@@ -179,9 +179,9 @@ const Wine = ({match}) => {
                             <Avatar className={classes.avatar}>with Bottle Age</Avatar>
                         </Grid>
                         <Grid item xs={9}>
-                            <GridList cols={5}>
+                            <ImageList cols={5}>
                                 {withBottleAge.map( (item, i) => <Flavor key={i} flavor={item} />)}
-                            </GridList>
+                            </ImageList>
                         </Grid>
                         <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
@@ -194,9 +194,9 @@ const Wine = ({match}) => {
                             <Avatar className={classes.avatar}>Barrel Aged</Avatar>
                         </Grid>
                         <Grid item xs={9}>
-                            <GridList cols={5}>
+                            <ImageList cols={5}>
                                 {barrelAged.map( (item, i) => <Flavor key={i} flavor={item} />)}
-                            </GridList>
+                            </ImageList>
                         </Grid>
                         <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
@@ -209,9 +209,9 @@ const Wine = ({match}) => {
                             <Avatar className={classes.avatar}>Bonus</Avatar>
                         </Grid>
                         <Grid item xs={9}>
-                            <GridList cols={5}>
+                            <ImageList cols={5}>
                                 {bonus.map( (item, i) => <Flavor key={i} flavor={item} />)}
-                            </GridList>
+                            </ImageList>
                         </Grid>
                         <Grid item xs={12}><hr className={classes.separator} /></Grid>
                     </>
