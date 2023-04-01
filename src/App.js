@@ -1,5 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material';
+import { adaptV4Theme } from '@mui/material/styles';
+import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material';
 import './App.css';
 import NavBar from './components/NavBar';
 import Search from './components/Search';
@@ -10,7 +11,7 @@ import WineEdit from './pages/WineEdit';
 import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
-const theme = createTheme({
+const theme = createTheme(adaptV4Theme({
   palette: {
     primary: {
       light: '#ce467b',
@@ -56,35 +57,37 @@ const theme = createTheme({
       },
     }
   },
-})
+}))
 
 const App = () => {
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavBar />     
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <NavBar />     
 
-      <main>
-        <Switch>        
-          <Route path="/wines/new" component={WineNew} />
-          <Route path="/wines/:objectId/edit" render={ routeProps => 
-            <WineEdit {...routeProps} />
-          } />
-          <Route path="/wines/:objectId" render={routeProps =>
-            <Wine {...routeProps} />
-          } />
-          <Route exact path="/" component={Wines} />
-          <Route path="/search" component={Search} />
-          <Route exact path="/wines" component={Wines} />
-          <Route path="/404" component={NotFound} />
-          <Route component={NotFound} />
-        </Switch>
-      </main>
+        <main>
+          <Switch>        
+            <Route path="/wines/new" component={WineNew} />
+            <Route path="/wines/:objectId/edit" render={ routeProps => 
+              <WineEdit {...routeProps} />
+            } />
+            <Route path="/wines/:objectId" render={routeProps =>
+              <Wine {...routeProps} />
+            } />
+            <Route exact path="/" component={Wines} />
+            <Route path="/search" component={Search} />
+            <Route exact path="/wines" component={Wines} />
+            <Route path="/404" component={NotFound} />
+            <Route component={NotFound} />
+          </Switch>
+        </main>
 
-      <footer>
-        <Footer />
-      </footer>
-    </ThemeProvider>
+        <footer>
+          <Footer />
+        </footer>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
